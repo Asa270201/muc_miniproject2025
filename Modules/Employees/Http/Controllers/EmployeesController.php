@@ -64,8 +64,14 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        return view('employees::edit');
+        $employee = DB::connection('mysql_hrd')
+            ->table('employees')
+            ->where('id', $id)
+            ->first();
+
+        return view('employees::edit', compact('employee'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -75,8 +81,22 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validasi sederhana
+        $request->validate([
+            'status' => 'required'
+        ]);
+
+        // Update ke database HRD
+        DB::connection('mysql_hrd')
+            ->table('employees')
+            ->where('id', $id)
+            ->update([
+                'status' => $request->status
+            ]);
+
+        return redirect()->route('employees.index')->with('success', 'Status updated!');
     }
+
 
     /**
      * Remove the specified resource from storage.

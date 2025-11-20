@@ -10,7 +10,13 @@ class ProposalModel extends Model
     use HasFactory;
 
     protected $connection = 'mysql_marketing';
-    protected $table = 'proposal'; // atau nama table yang sesuai
-    
-    protected $fillable = [];
+    protected $table = 'proposal';
+    protected $primaryKey = 'id';
+    protected $fillable = ['number','year','description','status'];
+
+    // Relasi ke ServiceusedModel
+    public function serviceuseds()
+    {
+        return $this->hasMany(ServiceusedModel::class, 'proposal_id');
+    }
 }

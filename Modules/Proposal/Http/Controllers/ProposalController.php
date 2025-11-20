@@ -16,8 +16,6 @@ class ProposalController extends Controller
     public function index()
     {
         $proposals = ProposalModel::get();
-
-
         return view('proposal::index', compact('proposals'));
     }
 
@@ -37,7 +35,17 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'number' => 'required|unique:proposal',
+            'description' => 'required',
+            'year' => 'required|digits:4',
+            'status' => 'required|in:pending,agreed,rejected',
+        ]);
+
+        ProposalModel::create($request->all());
+
+        return redirect()->route('proposal.index')
+                         ->with('success', 'Proposal berhasil ditambahkan!');
     }
 
     /**

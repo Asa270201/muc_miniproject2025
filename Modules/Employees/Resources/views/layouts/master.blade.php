@@ -8,7 +8,6 @@
 
        {{-- Laravel Mix - CSS File --}}
        {{-- <link rel="stylesheet" href="{{ mix('css/employees.css') }}"> --}}
-
     </head>
     <body>
         @yield('content')
@@ -16,4 +15,16 @@
         {{-- Laravel Mix - JS File --}}
         {{-- <script src="{{ mix('js/employees.js') }}"></script> --}}
     </body>
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alertBox');
+            if (alert) {
+                alert.classList.add('fade-out');
+                setTimeout(() => alert.style.display = 'none', 1000);
+            }
+        }, 3000); // tampil 3 detik
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </html>

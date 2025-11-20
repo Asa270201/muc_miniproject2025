@@ -63,6 +63,20 @@ return [
             ]) : [],
         ],
 
+        'muc__activity__miniproject' => [
+        'driver' => 'mysql',
+        'host' => env('ACTIVITY_DB_HOST', '127.0.0.1'),
+        'port' => env('ACTIVITY_DB_PORT', '3306'),
+        'database' => env('ACTIVITY_DB_DATABASE', 'muc__activity__miniproject'),
+        'username' => env('ACTIVITY_DB_USERNAME', 'root'),
+        'password' => env('ACTIVITY_DB_PASSWORD', ''),
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix' => '',
+        'strict' => true,
+        'engine' => null,
+    ],
+
         'mysql_marketing' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -183,5 +197,6 @@ return [
         ],
 
     ],
+    
 
 ];

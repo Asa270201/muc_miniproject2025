@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{url('assets')}}/css/lineicons.css" />
     <link rel="stylesheet" href="{{url('assets')}}/css/animate.css" />
     <link rel="stylesheet" href="{{url('assets')}}/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   </head>
   <body>
     <!--[if lte IE 9]>
@@ -55,7 +56,7 @@
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="index.html">
-                  MUC Mini Project
+                  <h2 class="project-title" style="color: #007bff; font-family: 'Poppins', sans-serif;">MUC Mini Project</h2>
                 </a>
                 <button
                   class="navbar-toggler"
@@ -77,17 +78,17 @@
                 >
                   <ul id="nav" class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="page-scroll active" href="{{ url('employees/index') }}">Employees</a>
+                      <a href="{{ route('employees.index') }}">Employees</a>
                     </li>
                     <li class="nav-item">
-                      <a class="page-scroll" href="{{ url('proposal/index') }}">Proposal</a>
+                      <a href="{{ route('proposal.index') }}">Proposal</a>
                     </li>
                     <li class="nav-item">
-                      <a class="page-scroll" href="">Serviceused</a>
+                      <a href="{{ route('serviceused.index') }}">Serviceused</a>
                     </li>
 
                     <li class="nav-item">
-                      <a class="page-scroll" href="">Timesheet</a>
+                      <a href="{{ route('timesheet.index') }}">Timesheet</a>
                     </li>
                   </ul>
                 </div>
@@ -159,6 +160,24 @@
           </div>
         </div>
       </div>
+      <style>
+        .alert-animate {
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .alert-hide {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            const alertBox = document.getElementById('autoAlert');
+            if (alertBox) {
+                alertBox.classList.add('alert-hide');
+                setTimeout(() => alertBox.remove(), 800); // hapus setelah animasi selesai
+            }
+        }, 3000);
+    </script>
     </footer>
     <!-- ======== footer end ======== -->
 
@@ -168,8 +187,21 @@
     </a>
 
     <!-- ======== JS here ======== -->
+     @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
+    @endif
+    
     <script src="{{url('assets')}}/js/bootstrap.bundle.min.js"></script>
     <script src="{{url('assets')}}/js/wow.min.js"></script>
     <script src="{{url('assets')}}/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

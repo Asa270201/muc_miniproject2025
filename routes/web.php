@@ -15,3 +15,7 @@ use Modules\Employees\Http\Controllers\EmployeesController;
 */
 
 Route::get('/', [EmployeesController::class, 'index']);
+Route::get('/employees', [EmployeesController::class, 'index'])->name('employees.index');
+Route::get('/proposal', [ProposalController::class, 'index'])->name('proposal.index');
+Route::get('/serviceused', [ServiceusedController::class, 'index'])->name('serviceused.index');
+Route::get('/timesheet', [TimesheetController::class, 'index'])->name('timesheet.index');

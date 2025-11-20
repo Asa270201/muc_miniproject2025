@@ -12,13 +12,15 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Employees\Http\Controllers\EmployeesController;
 
 Route::prefix('employees')->group(function() {
-    Route::get('/index', 'EmployeesController@index')->name('employees.index');
-    Route::get('/create', 'EmployeesController@create')->name('employees.create');
-    Route::post('/', 'EmployeesController@store')->name('employees.store');
-    Route::get('/{id}', 'EmployeesController@show')->name('employees.show');
-    Route::get('/{id}/edit', 'EmployeesController@edit')->name('employees.edit');
-    Route::put('/{id}', 'EmployeesController@update')->name('employees.update');
-    Route::delete('/{id}', 'EmployeesController@destroy')->name('employees.destroy');
+    Route::get('/index', [EmployeesController::class, 'index'])->name('employees.index');
+    Route::get('/create', [EmployeesController::class, 'create'])->name('employees.create');
+    Route::post('/', [EmployeesController::class, 'store'])->name('employees.store');
+    Route::get('/{id}', [EmployeesController::class, 'show'])->name('employees.show');
+    Route::get('/{id}/edit', [EmployeesController::class, 'edit'])->name('employees.edit');
+    Route::put('/{id}', [EmployeesController::class, 'update'])->name('employees.update');
+    Route::delete('/{id}', [EmployeesController::class, 'destroy'])->name('employees.destroy');
 });
+
