@@ -40,10 +40,10 @@ Dibangun dengan **Laravel Modular Structure** dan multi-database integration.
 ---
 
 ## Revisi List
-Create Proposal is failing (Priority: High) (Done)
-Timesheet List: Employee name does not appear (Priority: High) (Done)
-Serviceused List: Incorrect proposal number information (Priority: High) (Done)
-Create Serviceused: Change input for proposal ID to a dropdown selection of proposal numbers (Priority: Opportunities for Improvement) (Done)
+- Create Proposal is failing (Priority: High) (Done)
+- Timesheet List: Employee name does not appear (Priority: High) (Done)
+- Serviceused List: Incorrect proposal number information (Priority: High) (Done)
+- Create Serviceused: Change input for proposal ID to a dropdown selection of proposal numbers (Priority: Opportunities for Improvement) (Done)
 
 ---
 
