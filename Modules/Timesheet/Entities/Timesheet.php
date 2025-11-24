@@ -15,14 +15,16 @@ class Timesheet extends Model
     protected $connection = 'muc__activity__miniproject';
     protected $table = 'timesheet';
 
+    public $timestamps = false;
+
     // Kolom yang bisa diisi
     protected $fillable = [
-        'employee_id',       // sudah disesuaikan dari employees_id
-        'proposal_id',
-        'serviceused_id',
+        'date',
         'timestart',
         'timefinish',
-        'total_jam'
+        'employee_id',
+        'serviceused_id',
+        'description'
     ];
 
     // Relasi ke tabel serviceused

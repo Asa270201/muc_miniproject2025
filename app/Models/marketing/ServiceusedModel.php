@@ -3,6 +3,8 @@
 namespace App\Models\marketing;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\marketing\ProposalModel;
+use Modules\Timesheet\Entities\Timesheet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use DB;
 
@@ -32,6 +34,11 @@ class ServiceusedModel extends Model
     public function proposal()
     {
         return $this->belongsTo(ProposalModel::class, 'proposal_id');
+    }
+    
+   public function timesheets()
+    {
+        return $this->hasMany(Timesheet::class, 'serviceused_id');
     }
 
 }

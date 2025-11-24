@@ -46,6 +46,7 @@
                             <thead>
                                 <tr>
                                     <th>Proposal Number</th>
+                                    <th>Nama Karyawan</th>
                                     <th>Nama Service</th>
                                     <th>Status</th>
                                     <th>Timespent (hh:mm)</th>
@@ -55,7 +56,8 @@
                             <tbody>
                                 @foreach($services as $service)
                                     <tr>
-                                        <td>{{ $service->proposal_id }}</td>
+                                        <td>{{ $service->proposal->number ?? '-' }}</td>
+                                        <td>{{ $service->employee_name }}</td>
                                         <td>{{ $service->service_name }}</td>
                                         <td>
                                             @php

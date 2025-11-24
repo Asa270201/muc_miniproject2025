@@ -15,19 +15,35 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="form-group mb-3">
-                        <label for="proposal_id">Proposal ID</label>
-                        <input type="text" name="proposal_id" id="proposal_id" class="form-control" value="{{ $service->proposal_id }}" required>
+                    <!-- Proposal Number (readonly) -->
+                    <div class="mb-3">
+                        <label class="form-label">Proposal Number</label>
+                        <input type="text" class="form-control" value="{{ $service->proposal->number ?? '-' }}" readonly>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label for="service_name">Service Name</label>
-                        <input type="text" name="service_name" id="service_name" class="form-control" value="{{ $service->service_name }}" required>
+                    <!-- Service Name (readonly) -->
+                    <div class="mb-3">
+                        <label class="form-label">Service Name</label>
+                        <input type="text" class="form-control" value="{{ $service->service_name }}" readonly>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label for="status">Status</label>
-                        <select name="status" id="status" class="form-control" required>
+                    <!-- Nama Karyawan (editable dropdown) -->
+                    <div class="mb-3">
+                        <label for="employee_id" class="form-label">Nama Karyawan</label>
+                        <select name="employee_id" id="employee_id" class="form-select" required>
+                            <option value="">-- Pilih Karyawan --</option>
+                            @foreach($employees as $employee)
+                                <option value="{{ $employee->id }}" {{ $employee->id == $service->employee_id ? 'selected' : '' }}>
+                                    {{ $employee->fullname }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <!-- Status (editable) -->
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" id="status" class="form-select" required>
                             <option value="pending" {{ $service->status == 'pending' ? 'selected' : '' }}>Pending</option>
                             <option value="ongoing" {{ $service->status == 'ongoing' ? 'selected' : '' }}>Ongoing</option>
                             <option value="done" {{ $service->status == 'done' ? 'selected' : '' }}>Done</option>
@@ -37,6 +53,7 @@
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="{{ route('serviceused.index') }}" class="btn btn-secondary">Back</a>
                 </form>
+
             </div>
         </div>
     </div>
