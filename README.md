@@ -14,6 +14,16 @@
 
 ---
 
+# 🎥 Demo Video (Revisi)
+
+<p align="center">
+  <a href="https://youtu.be/IrT9uNPe_M0" target="_blank">
+    <img src="https://img.youtube.com/vi/e9jf22Ebjss/0.jpg" alt="Demo Video" width="600">
+  </a>
+</p>
+
+---
+
 # MUC Mini Project 2025
 
 Mini Project Test Assignment untuk posisi **Junior Programmer** di MUC Consulting.  
@@ -26,6 +36,14 @@ Dibangun dengan **Laravel Modular Structure** dan multi-database integration.
 - **Proposal** → Create proposal (mandatory).
 - **Serviceused** → List service dengan Proposal Number, Nama Service, Status (badge warna), Timespent.
 - **Timesheet** → List timesheet dengan Tanggal, Karyawan, Proposal Number, Service Name, Waktu Mulai/Selesai, Total Jam.
+
+---
+
+## Revisi List
+Create Proposal is failing (Priority: High) (Done)
+Timesheet List: Employee name does not appear (Priority: High) (Done)
+Serviceused List: Incorrect proposal number information (Priority: High) (Done)
+Create Serviceused: Change input for proposal ID to a dropdown selection of proposal numbers (Priority: Opportunities for Improvement) (Done)
 
 ---
 
