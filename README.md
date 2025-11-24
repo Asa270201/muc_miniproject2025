@@ -29,7 +29,7 @@
 - Timesheet List: Employee name does not appear (Priority: High) (Done)
 - Serviceused List: Incorrect proposal number information (Priority: High) (Done)
 - Create Serviceused: Change input for proposal ID to a dropdown selection of proposal numbers (Priority: Opportunities for Improvement) (Done)
-Tolong Import Database di dalam folder schema terlebih dahulu kak
+- Tolong Import Database di dalam folder schema terlebih dahulu kak
 
 ---
 
